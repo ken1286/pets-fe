@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.scss';
+import Login from './components/forms/Login.jsx';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from './actions';
+import PetCard from './components/PetCard.jsx';
 
 function App() {
+  const counter = useSelector(state => state.counter); // call from reducer here
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div>
+    //   <h2>Counter {counter}</h2>
+    //   <button onClick={() => dispatch(increment(5))}>+</button>
+    //   <button onClick={() => dispatch(decrement())}>-</button>
+    // </div>
+    <PetCard />
   );
 }
 
