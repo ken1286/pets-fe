@@ -1,0 +1,22 @@
+.MuiCard-root {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+
+  #mid-content {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+  }
+
+  .MuiCollapse-container {
+    width: 100%;
+  }
+
+  .MuiCardActions-root {
+    margin-bottom: 10px;
+    height: 10%;
+    margin-left: auto;
+  }
+}
