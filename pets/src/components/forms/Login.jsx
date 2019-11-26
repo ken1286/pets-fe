@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { login } from '../../actions';
+import { useHistory } from 'react-router-dom';
 
-const Login = () => {
+const Login = props => {
   const [value, setValue] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   // const handleChanges = e => {
   //   setValue(e.target.value);
@@ -12,8 +17,14 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
+    const credentials = {
+      username: username,
+      password: password
+    };
+
+    dispatch(login(credentials)).then(() => {
+      history.push('/');
+    });
   };
 
   return (
