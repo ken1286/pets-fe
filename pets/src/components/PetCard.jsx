@@ -19,7 +19,7 @@ const dummyData = {
     'https://heavyeditorial.files.wordpress.com/2019/11/baby-yoda-toys.jpg?quality=65&strip=all&w=780'
 };
 
-const PetCard = () => {
+const PetCard = props => {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -28,10 +28,10 @@ const PetCard = () => {
 
   return (
     <Card raised={true}>
-      <CardHeader title={dummyData.name} />
-      <CardMedia component='img' image={dummyData.imgLink} />
+      <CardHeader title={props.name} />
+      <CardMedia component='img' image={props.image} />
       <CardContent id='mid-content'>
-        <Typography paragraph>Stuff:</Typography>
+        <Typography paragraph>{props.species}</Typography>
         <Typography paragraph>This is some sample text!</Typography>
       </CardContent>
       <CardActions disableSpacing>

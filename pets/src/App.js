@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   // const counter = useSelector(state => state.counter); // call from reducer here
-  const dispatch = useDispatch();
 
   return (
     <Router>

@@ -1,15 +1,9 @@
-export default function mainview(state = {}, action) {
+export default function mainview(state = [], action) {
   switch (action.type) {
     case 'PETS_FETCHED':
-      return {
-        ...state,
-        pets: action.payload.pets
-      };
+      return [...action.payload.pets];
     case 'PETS_FAILURE':
-      return {
-        ...state,
-        message: action.payload.message
-      };
+      return [...state];
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 export { login } from './login-register';
-export { getPets } from './mainview';
+export { getPets, addPet } from './mainview';
 
 // export const increment = num => {
 //   return {
