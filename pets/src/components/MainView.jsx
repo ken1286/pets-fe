@@ -28,10 +28,11 @@ const MainView = () => {
         return (
           <PetCard
             key={pet.id}
-            petId={pet.id}
-            name={pet.name}
-            species={pet.species}
-            image={pet.imageUrl}
+            // petId={pet.id}
+            // name={pet.name}
+            // species={pet.species}
+            // image={pet.imageUrl}
+            pet={pet}
           />
         );
       });

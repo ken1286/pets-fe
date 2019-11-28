@@ -13,7 +13,6 @@ const EditPet = props => {
   const [species, setSpecies] = useState(pet.species);
   const [photo, setPhoto] = useState(null);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   // const handleChanges = e => {
   //   setValue(e.target.value);

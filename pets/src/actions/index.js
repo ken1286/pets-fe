@@ -1,4 +1,4 @@
-export { login } from './login-register';
+export { login, register } from './login-register';
 export { getPets, addPet, deletePet, editPet } from './mainview';
 
 // export const increment = num => {

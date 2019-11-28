@@ -25,6 +25,7 @@ import EditPetModal from './EditPetModal';
 const PetCard = props => {
   const [expanded, setExpanded] = useState(false);
   const dispatch = useDispatch();
+  const pet = props.pet;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -32,15 +33,15 @@ const PetCard = props => {
 
   const handleDeletePet = ev => {
     ev.preventDefault();
-    dispatch(deletePet(props.petId));
+    dispatch(deletePet(pet.id));
   };
 
   return (
     <Card raised={true}>
-      <CardHeader title={props.name} />
-      <CardMedia component='img' image={props.image} />
+      <CardHeader title={pet.name} />
+      <CardMedia component='img' image={pet.imageUrl} />
       <CardContent id='mid-content'>
-        <Typography paragraph>{props.species}</Typography>
+        <Typography paragraph>{pet.species}</Typography>
         <Typography paragraph>This is some sample text!</Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -68,7 +69,7 @@ const PetCard = props => {
             odit harum temporibus mollitia eligendi dignissimos vero!
           </Typography>
         </CardContent>
-        <EditPetModal petId={props.petId} />
+        <EditPetModal petId={pet.id} />
         <button onClick={handleDeletePet}>X</button>
       </Collapse>
     </Card>

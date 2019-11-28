@@ -1,15 +1,9 @@
-export default function loginRegister(state = { message: '' }, action) {
+export default function loginRegister(state = '', action) {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return {
-        ...state,
-        message: action.payload.message
-      };
+      return action.payload.message;
     case 'LOGIN_FAILURE':
-      return {
-        ...state,
-        message: action.payload.message
-      };
+      return action.payload.message;
     default:
       return state;
   }

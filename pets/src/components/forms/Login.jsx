@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../actions';
 import { useHistory } from 'react-router-dom';
 
 const Login = props => {
-  const [value, setValue] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -51,7 +49,7 @@ const Login = props => {
           }}
         />
       </label>
-      <button onClick={handleSubmit}>Hello</button>
+      <button onClick={handleSubmit}>Login</button>
     </form>
   );
 };

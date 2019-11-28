@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/App.scss';
-import LoginRegister from './components/forms/LoginRegister';
+import LoginRegisterView from './components/LoginRegisterView';
 import MainView from './components/MainView';
 import PrivateRoute from './PrivateRoute';
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,8 +22,8 @@ function App() {
       </div>
       // <PetCard /> */}
       {/* <Switch> */}
-      <Route path='/login' component={LoginRegister} />
-      <PrivateRoute path='/' component={MainView} />
+      <Route path='/login' component={LoginRegisterView} />
+      <PrivateRoute exact path='/' component={MainView} />
       {/* </Switch> */}
     </Router>
   );
