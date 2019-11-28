@@ -10,20 +10,29 @@ import {
   IconButton
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { deletePet } from '../actions';
+import { useDispatch } from 'react-redux';
+import EditPetModal from './EditPetModal';
 
-const dummyData = {
-  name: 'Baby Yoda',
-  species: 'Yoda',
-  color: 'Green',
-  imgLink:
-    'https://heavyeditorial.files.wordpress.com/2019/11/baby-yoda-toys.jpg?quality=65&strip=all&w=780'
-};
+// const dummyData = {
+//   name: 'Baby Yoda',
+//   species: 'Yoda',
+//   color: 'Green',
+//   imgLink:
+//     'https://heavyeditorial.files.wordpress.com/2019/11/baby-yoda-toys.jpg?quality=65&strip=all&w=780'
+// };
 
 const PetCard = props => {
   const [expanded, setExpanded] = useState(false);
+  const dispatch = useDispatch();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleDeletePet = ev => {
+    ev.preventDefault();
+    dispatch(deletePet(props.petId));
   };
 
   return (
@@ -59,6 +68,8 @@ const PetCard = props => {
             odit harum temporibus mollitia eligendi dignissimos vero!
           </Typography>
         </CardContent>
+        <EditPetModal petId={props.petId} />
+        <button onClick={handleDeletePet}>X</button>
       </Collapse>
     </Card>
   );

@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addPet } from '../../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { editPet } from '../../actions';
 import { useHistory } from 'react-router-dom';
 
-const AddPet = props => {
+const EditPet = props => {
   const [value, setValue] = useState('');
-  const [name, setName] = useState('');
-  const [species, setSpecies] = useState('');
+  const pet = useSelector(state => state.mainview).find(
+    pet => pet.id === props.petId
+  );
+  console.log(pet);
+  const [name, setName] = useState(pet.name);
+  const [species, setSpecies] = useState(pet.species);
   const [photo, setPhoto] = useState(null);
-
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -27,14 +29,10 @@ const AddPet = props => {
     }
 
     console.log(newPet);
-
-    // console.log(newPet.entries());
-    // console.log(newPet);
     for (let pair of newPet.entries()) {
       console.log(pair[0], ' ', pair[1]);
     }
-    dispatch(addPet(newPet)).then(() => {
-      // history.push('/');
+    dispatch(editPet(newPet, pet.id)).then(() => {
       props.toggle();
     });
     setName('');
@@ -79,4 +77,4 @@ const AddPet = props => {
   );
 };
 
-export default AddPet;
+export default EditPet;

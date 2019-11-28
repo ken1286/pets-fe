@@ -9,9 +9,11 @@ export const login = credentials => dispatch => {
   })
     .then(res => {
       localStorage.setItem('token', res.data.token);
+      console.log(res);
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
     })
     .catch(err => {
+      console.log(err);
       dispatch({ type: 'LOGIN_FAILURE', payload: err });
     });
 };
