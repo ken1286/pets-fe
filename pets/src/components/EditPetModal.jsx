@@ -12,7 +12,7 @@ const EditPetModal = props => {
   return (
     <div>
       <button type='button' onClick={handleOpen}>
-        Open Modal
+        Edit Pet
       </button>
       <Modal
         aria-labelledby='simple-modal-title'

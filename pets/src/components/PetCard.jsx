@@ -14,22 +14,14 @@ import { deletePet } from '../actions';
 import { useDispatch } from 'react-redux';
 import EditPetModal from './EditPetModal';
 
-// const dummyData = {
-//   name: 'Baby Yoda',
-//   species: 'Yoda',
-//   color: 'Green',
-//   imgLink:
-//     'https://heavyeditorial.files.wordpress.com/2019/11/baby-yoda-toys.jpg?quality=65&strip=all&w=780'
-// };
-
 const PetCard = props => {
   const [expanded, setExpanded] = useState(false);
   const dispatch = useDispatch();
   const pet = props.pet;
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  // const handleExpandClick = () => {
+  //   setExpanded(!expanded);
+  // };
 
   const handleDeletePet = ev => {
     ev.preventDefault();
@@ -39,12 +31,16 @@ const PetCard = props => {
   return (
     <Card raised={true}>
       <CardHeader title={pet.name} />
-      <CardMedia component='img' image={pet.imageUrl} />
-      <CardContent id='mid-content'>
+      <CardMedia
+        component='img'
+        image={
+          pet.imageUrl !== null ? pet.imageUrl : require('./placeholder.jpg')
+        }
+      />
+      <CardContent className='mid-content'>
         <Typography paragraph>{pet.species}</Typography>
-        <Typography paragraph>This is some sample text!</Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      {/* <CardActions disableSpacing>
         <IconButton
           onClick={handleExpandClick}
           style={{
@@ -56,8 +52,8 @@ const PetCard = props => {
         >
           <ExpandMoreIcon />
         </IconButton>
-      </CardActions>
-      <Collapse in={expanded}>
+      </CardActions> */}
+      {/* <Collapse in={expanded}>
         <CardContent>
           <Typography paragraph>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -68,10 +64,12 @@ const PetCard = props => {
             voluptates veniam voluptatum modi ad, totam iure sed fugiat deserunt
             odit harum temporibus mollitia eligendi dignissimos vero!
           </Typography>
-        </CardContent>
+        </CardContent> */}
+      <div className='bottom-card'>
         <EditPetModal petId={pet.id} />
         <button onClick={handleDeletePet}>X</button>
-      </Collapse>
+      </div>
+      {/* </Collapse> */}
     </Card>
   );
 };

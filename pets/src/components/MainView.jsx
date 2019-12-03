@@ -26,14 +26,15 @@ const MainView = () => {
           console.log(pet);
         }
         return (
-          <PetCard
-            key={pet.id}
-            // petId={pet.id}
-            // name={pet.name}
-            // species={pet.species}
-            // image={pet.imageUrl}
-            pet={pet}
-          />
+          <div key={pet.id} className='mainview-pet'>
+            <PetCard
+              // petId={pet.id}
+              // name={pet.name}
+              // species={pet.species}
+              // image={pet.imageUrl}
+              pet={pet}
+            />
+          </div>
         );
       });
       setPetDisplay(newPetDisplay);
@@ -45,7 +46,7 @@ const MainView = () => {
   return (
     <>
       <AddPetModal />
-      {petDisplay}
+      <div className='main-div'>{petDisplay}</div>
     </>
   );
 };
