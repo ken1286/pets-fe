@@ -20,7 +20,7 @@ function App() {
         // <button onClick={() => dispatch(decrement())}>-</button>
         //{' '}
       </div>
-      // <PetCard /> */}
+      // <PetCard /> *}
       {/* <Switch> */}
       <Route path='/login' component={LoginRegisterView} />
       <PrivateRoute exact path='/' component={MainView} />
